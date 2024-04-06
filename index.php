@@ -4,7 +4,7 @@ function countWorkingDays($date_one, $date_two) {
     $start = new DateTime($date_one);
     $end = new DateTime($date_two);
     
-    $weekend_days = [0, 6]; // Sunday (0) and Saturday (6)
+    $weekend_days = [0, 6];
     $govt_holidays = [
         "2024-04-05", // Friday
         "2024-04-06", // Saturday
