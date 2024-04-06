@@ -4,7 +4,7 @@ function countWorkingDays($date_one, $date_two) {
     $start = new DateTime($date_one);
     $end = new DateTime($date_two);
     
-    $weekend_days = [0, 6];
+    $weekend_days = [0, 6]; // 0 = Sunday, 6 = Saturday
     $govt_holidays = [
         "2024-04-05", // Friday
         "2024-04-06", // Saturday
@@ -26,7 +26,7 @@ function countWorkingDays($date_one, $date_two) {
     $period = new DatePeriod($start, new DateInterval('P1D'), $end);
 
     foreach ($period as $current_date) {
-        $day_of_week = (int)$current_date->format('w'); // 0 (Sunday) to 6 (Saturday)
+        $day_of_week = (int)$current_date->format('w'); // 0(Sunday) - 6(Saturday)
         $date_str = $current_date->format('Y-m-d');
 
         if (!in_array($day_of_week, $weekend_days) && !in_array($date_str, $govt_holidays)) {
